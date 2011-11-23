@@ -1,0 +1,45 @@
+<?php 
+  /**
+   * Implementation of hook_menu().
+   *
+   * @return An array of menu items.
+   */
+  function foapi_test_menu() {
+    $items = array();
+  
+    $items['foapi/test'] = array(
+      'title' => '',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('foapi_test_form'),
+      'access callback' => 'user_access',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+    );
+          
+    return $items;
+  }
+/**
+   * Implementation of hook_init().
+   */
+  function foapi_test_init() {
+    $o = new foapi_text_field(TRUE,'after_build','desc','');//....
+    dpm($o);
+    dpm($o->foapi_object_to_array());
+    $o = new foapi_text_field();
+    $o->title = 'title';
+    $o->auto_complete = 'auto_complete';
+    $o->weight = 15;
+    $o->access = true;
+    dpm($o);
+    dpm($o->foapi_object_to_array());
+  }
+  function foapi_test_form(&$form_state) {
+    
+    $form = array();
+    $o = new foapi_text_field();
+    $o->title = 'title';
+    $o->auto_complete = 'auto_complete';
+    $o->weight = 15;
+    $form['t'] = $o->foapi_object_to_array(); 
+    return $form;
+  }

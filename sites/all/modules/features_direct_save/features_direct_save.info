@@ -1,0 +1,11 @@
+name = "Features direct save"
+description = "Provides feature management auto download button."
+core = 6.x
+dependencies[] = "features"
+package = "Features"
+; Information added by drupal.org packaging script on 2011-07-02
+version = "6.x-1.4"
+core = "6.x"
+project = "features_tools"
+datestamp = "1309637516"
+
