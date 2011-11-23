@@ -145,7 +145,7 @@ function ctools_component_features_export($component, $data, &$export, $module_n
       }
     }
   }
-  dpm($export);dpm($component);
+  
   // Let CTools handle API integration for this component.
   return array('ctools' => array($component));
 }
