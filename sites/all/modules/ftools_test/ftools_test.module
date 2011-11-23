@@ -1,0 +1,3 @@
+<?php
+
+include_once('ftools_test.features.inc');
